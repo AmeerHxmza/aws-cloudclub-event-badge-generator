@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS Community Day - Badge Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <img src="logo_left.png" alt="Left Logo" class="logo-left">
+        <div class="header-title">AWS Community Day MUST AJK Badge Generator</div>
+        <img src="right_logo.png" alt="Right Logo" class="logo-right">
+    </div>
+
+    <main class="main-shell">
+        <!-- Page 1: Home -->
+        <div class="page active" id="homePage">
+            <div class="home-content">
+                <p>Join us for a full day of learning, networking, and collaboration.</p>
+                
+                <div class="badge-showcase">
+                    <h2>AWS Attendee Badge</h2>
+                    <div class="badge-template-preview">
+                        <img src="template.png" alt="Badge Template">
+                    </div>
+                </div>
+
+                <button class="btn" onclick="goToPage('formPage')">Create My Badge</button>
+            </div>
+        </div>
+
+        <!-- Page 2: Form -->
+        <div class="page" id="formPage">
+            <div class="form-container">
+                <h2>Create Your Badge</h2>
+                <p class="subtitle">Fill in your details to generate your personalized badge</p>
+
+                <div class="form-group">
+                    <label for="name">Your Full Name</label>
+                    <input type="text" id="name" placeholder="Enter your full name">
+                </div>
+
+                <div class="form-group">
+                    <label>Upload Your Photo</label>
+                    <div class="file-upload">
+                        <input type="file" id="photo" accept="image/*">
+                        <label for="photo" class="file-upload-btn">Choose Your Photo</label>
+                    </div>
+                    <div class="file-name" id="fileName">No file selected</div>
+                </div>
+
+                <div class="image-preview" id="imagePreview" style="display: none;">
+                    <img id="previewImg" src="" alt="Preview">
+                </div>
+
+                <div class="form-actions">
+                    <button class="btn btn-secondary" onclick="goToPage('homePage')" style="color: rgba(149, 4, 135, 1);">Back</button>
+                    <button class="btn" id="nextBtn" onclick="generateAndPreview()">Generate Badge</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Page 3: Preview -->
+        <div class="page" id="previewPage">
+            <div class="preview-container">
+                <h2>Your Badge is Ready!</h2>
+                <p class="subtitle">Download your badge and share it with the world</p>
+
+                <div class="badge-preview">
+                    <canvas id="badgeCanvas" width="800" height="1000"></canvas>
+                </div>
+
+                <div class="preview-actions">
+                    <button class="btn btn-secondary" onclick="goToPage('formPage')">Edit Badge</button>
+                    <button class="btn" onclick="downloadBadge()">Download Badge</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>© 2025 AWS Community Day MUST AJK. All rights reserved.</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
